@@ -6,9 +6,9 @@ OBJS=$(addprefix $(LIB_DIR)/, $(CPPS:.cc=.o))
 
 .PHONY: clean
 
-$(EXECUTABLE): $(OBJS)
+$(BIN_DIR)/$(EXECUTABLE): $(OBJS)
 	mkdir -p $(BIN_DIR)
-	$(CC) $(LDFLAG) $^ -o $(BIN_DIR)/$@
+	$(CC) $(LDFLAG) $^ -o $@
 
 $(LIB_DIR)/%.o: %.cc
 	mkdir -p $(LIB_DIR)

@@ -4,7 +4,6 @@
 #include <iostream>
 
 #include "gtest/gtest.h"
-#include "solution.h"
 
 int main(int argc, char** argv) {
   testing::InitGoogleTest(&argc, argv);

@@ -1,5 +1,5 @@
 EXECUTABLE=longest-incr-subseq
-CPPS=main.cc solution.cc
+CPPS=test.cc solution.cc
 BIN_DIR=../../bin
 LIB_DIR=lib
 

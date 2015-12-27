@@ -17,8 +17,18 @@ int main(void) {
   input.push_back(9);
   input.push_back(7);
 
-  Solution sol;
-  std::vector<int> result;
+  std::cout << "Input:" << std::endl;
+  for( int i=0; i<input.size(); i++ ) {
+    std::cout << input[i] << " ";
+  }
+  std::cout << std::endl;
 
-  sol.longest_increasing_subsequence(input, result);
+  Solution sol;
+  std::vector<int> seq = sol.get_longest_increasing_subsequence(input);
+
+  std::cout << "Solution:" << std::endl;
+  for( int i=0; i<seq.size(); i++ ) {
+    std::cout << seq[i] << " ";
+  }
+  std::cout << std::endl;
 }

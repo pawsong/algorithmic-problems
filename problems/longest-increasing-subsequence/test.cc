@@ -2,10 +2,15 @@
 #include <iostream>
 #include <vector>
 
+#include "gmock/gmock.h"
 #include "solution.h"
 
-int main(void) {
-  std::cout << "Problem: Longest increasing subsequence" << std::endl;
+int main(int argc, char** argv) {
+  testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
+}
+
+TEST(LongestIncreasingSubsequenceTest, Case1) {
 
   std::vector<int> input;
   input.push_back(5);
@@ -17,18 +22,9 @@ int main(void) {
   input.push_back(9);
   input.push_back(7);
 
-  std::cout << "Input:" << std::endl;
-  for( int i=0; i<input.size(); i++ ) {
-    std::cout << input[i] << " ";
-  }
-  std::cout << std::endl;
-
   Solution sol;
-  std::vector<int> seq = sol.get_longest_increasing_subsequence(input);
+  std::vector<int> result = sol.get_longest_increasing_subsequence(input);
 
-  std::cout << "Solution:" << std::endl;
-  for( int i=0; i<seq.size(); i++ ) {
-    std::cout << seq[i] << " ";
-  }
-  std::cout << std::endl;
+  int expected[] = {2, 3, 6, 9};
+  EXPECT_THAT(result, testing::ElementsAreArray(expected));
 }

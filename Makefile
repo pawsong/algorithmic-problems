@@ -29,3 +29,4 @@ $(LIB_DIR)/libgmock.a: $(LIB_DIR)/gtest-all.o $(LIB_DIR)/gmock-all.o
 	ar -rv $@ $^
 
 test:
+	$(foreach PROBLEM, $(PROBLEMS), make test -C $(PROBLEM);)

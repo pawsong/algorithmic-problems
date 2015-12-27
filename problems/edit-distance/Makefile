@@ -1,4 +1,4 @@
 PROBLEM=edit-distance
-CPPS=solution.cc
+CPPS=
 
 include ../../common.mk

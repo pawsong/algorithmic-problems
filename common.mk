@@ -1,20 +1,24 @@
 DEBUG=-g
 CFLAG=$(DEBUG)
 LDFLAG=$(DEBUG)
-OBJS=$(addprefix $(LIB_DIR)/, $(CPPS:.cc=.o))
+ROOT_DIR=$(dir $(lastword $(MAKEFILE_LIST)))
+LIB_DIR=$(ROOT_DIR)lib
+BIN_DIR=$(ROOT_DIR)bin
+GTEST_DIR=$(ROOT_DIR)gtest/googletest
+EXECUTABLE=$(BIN_DIR)/$(PROBLEM)
+OBJS=$(CPPS:.cc=.o)
 
 .PHONY: clean
 
-$(BIN_DIR)/$(EXECUTABLE): $(OBJS)
+$(EXECUTABLE): $(OBJS)
 	mkdir -p $(BIN_DIR)
-	$(CXX) $(LDFLAG) $^ -o $@
+	$(CXX) $(LDFLAG) -isystem ${GTEST_DIR}/include -pthread test.cc $^ $(LIB_DIR)/libgtest.a -o $@
 
-$(LIB_DIR)/%.o: %.cc
-	mkdir -p $(LIB_DIR)
+%.o: %.cc
 	$(CXX) $(CFLAG) -c $< -o $@
 
-run: $(BIN_DIR)/$(EXECUTABLE)
-	$(BIN_DIR)/$(EXECUTABLE)
+test: $(EXECUTABLE)
+	$(EXECUTABLE)
 
 clean:
-	rm -rf $(LIB_DIR)/*.o $(BIN_DIR)/$(EXECUTABLE)
+	rm -f $(OBJS) $(EXECUTABLE)

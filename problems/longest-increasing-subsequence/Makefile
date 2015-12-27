@@ -1,6 +1,4 @@
-EXECUTABLE=longest-incr-subseq
-CPPS=test.cc solution.cc
-BIN_DIR=../../bin
-LIB_DIR=lib
+PROBLEM=longest-incr-subseq
+CPPS=solution.cc
 
 include ../../common.mk

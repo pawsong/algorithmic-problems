@@ -1,6 +1,4 @@
-EXECUTABLE=edit-distance
-CPPS=main.cc
-BIN_DIR=../../bin
-LIB_DIR=lib
+PROBLEM=edit-distance
+CPPS=solution.cc
 
 include ../../common.mk

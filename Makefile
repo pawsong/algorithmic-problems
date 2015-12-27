@@ -11,8 +11,8 @@ $(PROBLEMS):
 	make -C $@
 
 clean:
-	rm -f $(LIB_DIR)/*
-	rm -f $(BIN_DIR)/*
+	rm -rf $(LIB_DIR)
+	rm -rf $(BIN_DIR)
 
 gtest: $(LIB_DIR)/gtest-all.o $(LIB_DIR)/libgtest.a
 

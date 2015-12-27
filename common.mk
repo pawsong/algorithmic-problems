@@ -11,9 +11,9 @@ OBJS=$(CPPS:.cc=.o)
 
 .PHONY: clean
 
-$(EXECUTABLE): $(OBJS)
+$(EXECUTABLE): test.cc $(OBJS)
 	mkdir -p $(BIN_DIR)
-	$(CXX) $(LDFLAG) -isystem ${GTEST_DIR}/include -isystem ${GMOCK_DIR}/include -pthread test.cc $^ $(LIB_DIR)/libgmock.a -o $@
+	$(CXX) $(LDFLAG) -isystem ${GTEST_DIR}/include -isystem ${GMOCK_DIR}/include -pthread $^ $(LIB_DIR)/libgmock.a -o $@
 
 %.o: %.cc
 	$(CXX) $(CFLAG) -c $< -o $@

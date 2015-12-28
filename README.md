@@ -3,3 +3,4 @@
 # Algorithmic problems
 * [Longest increasing subsequence](problems/longest-increasing-subsequence)
 * [Edit distance](problems/edit-distance)
+* [Knapsack](problems/knapsack)

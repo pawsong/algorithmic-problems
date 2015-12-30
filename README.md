@@ -4,4 +4,4 @@
 * [Longest increasing subsequence](problems/longest-increasing-subsequence)
 * [Edit distance](problems/edit-distance)
 * [Knapsack](problems/knapsack)
-* [Maxinal square](problems/maximal-square)
+* [Maximal square](problems/maximal-square)

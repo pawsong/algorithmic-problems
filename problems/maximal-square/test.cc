@@ -31,7 +31,7 @@ TEST(MaximalSquareTest, 0by0) {
 TEST(MaximalSquareTest, 1by1) {
   std::vector< std::vector<char> > matrix;
   char elems[1][1] = {
-    {1},
+    {'1'},
   };
   matrix = createMatrix(elems);
 
@@ -43,7 +43,7 @@ TEST(MaximalSquareTest, 1by1) {
 TEST(MaximalSquareTest, 1by5) {
   std::vector< std::vector<char> > matrix;
   char elems[1][5] = {
-    {1,0,1,0,0},
+    {'1','0','1','0','0'},
   };
   matrix = createMatrix(elems);
 
@@ -55,11 +55,11 @@ TEST(MaximalSquareTest, 1by5) {
 TEST(MaximalSquareTest, 5by1) {
   std::vector< std::vector<char> > matrix;
   char elems[5][1] = {
-    {1},
-    {0},
-    {1},
-    {1},
-    {1}
+    {'1'},
+    {'0'},
+    {'1'},
+    {'1'},
+    {'1'}
   };
   matrix = createMatrix(elems);
 
@@ -102,16 +102,16 @@ TEST(MaximalSquareTest, 4by5) {
 TEST(MaximalSquareTest, 10by10) {
   std::vector< std::vector<char> > matrix;
   char elems[10][10] = {
-    {1,0,1,0,0,1,1,1,1,1},
-    {1,0,1,1,1,1,1,1,1,1},
-    {1,1,1,1,1,1,1,1,1,1},
-    {1,0,0,1,0,1,1,1,1,1},
-    {1,0,0,0,0,0,1,1,1,1},
-    {1,0,1,0,0,0,1,1,1,1},
-    {1,0,1,1,1,1,1,1,1,1},
-    {1,1,1,1,1,1,1,1,1,1},
-    {1,0,0,1,0,1,1,1,1,1},
-    {1,0,0,0,0,1,1,1,1,1},
+    {'1','0','1','0','0','1','1','1','1','1'},
+    {'1','0','1','1','1','1','1','1','1','1'},
+    {'1','1','1','1','1','1','1','1','1','1'},
+    {'1','0','0','1','0','1','1','1','1','1'},
+    {'1','0','0','0','0','0','1','1','1','1'},
+    {'1','0','1','0','0','0','1','1','1','1'},
+    {'1','0','1','1','1','1','1','1','1','1'},
+    {'1','1','1','1','1','1','1','1','1','1'},
+    {'1','0','0','1','0','1','1','1','1','1'},
+    {'1','0','0','0','0','1','1','1','1','1'},
   };
   matrix = createMatrix(elems);
 

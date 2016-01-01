@@ -5,3 +5,4 @@
 * [Edit distance](problems/edit-distance)
 * [Knapsack](problems/knapsack)
 * [Maximal square](problems/maximal-square)
+* [Perfect squares](problems/perfect-squares)

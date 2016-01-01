@@ -1,4 +1,5 @@
 
+#include <vector>
 #include <iterator>
 
 #include "gmock/gmock.h"

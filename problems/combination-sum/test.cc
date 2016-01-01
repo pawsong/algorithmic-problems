@@ -1,6 +1,5 @@
 
 #include <vector>
-#include <iterator>
 
 #include "gmock/gmock.h"
 #include "solution.h"
@@ -12,12 +11,23 @@ int main(int argc, char** argv) {
   return RUN_ALL_TESTS();
 }
 
+template<int m, typename T>
+std::vector<T> vectorize(T (&arr)[m]) {
+  std::vector<T> vec;
+
+  for (int i=0; i<m; i++) {
+    vec.push_back(arr[i]);
+  }
+
+  return vec;
+}
+
 TEST(CombinationSumTest, Sum8) {
   int input[] = {2, 3, 5};
   int target = 8;
 
   Solution sol;
-  std::vector<int> candidates (std::begin(input), std::end(input));
+  std::vector<int> candidates = vectorize(input);
   std::vector< std::vector<int> > solutions = sol.combinationSum(candidates, target);
 
   EXPECT_THAT(solutions, UnorderedElementsAre(ElementsAre(2, 2, 2, 2), ElementsAre(2, 3, 3), ElementsAre(3, 5)));
@@ -28,7 +38,7 @@ TEST(CombinationSumTest, Sum7) {
   int target = 7;
 
   Solution sol;
-  std::vector<int> candidates (std::begin(input), std::end(input));
+  std::vector<int> candidates = vectorize(input);
   std::vector< std::vector<int> > solutions = sol.combinationSum(candidates, target);
 
   EXPECT_THAT(solutions, UnorderedElementsAre(ElementsAre(7), ElementsAre(2, 2, 3)));
@@ -39,7 +49,7 @@ TEST(CombinationSumTest, Sum16) {
   int target = 16;
 
   Solution sol;
-  std::vector<int> candidates (std::begin(input), std::end(input));
+  std::vector<int> candidates = vectorize(input);
   std::vector< std::vector<int> > solutions = sol.combinationSum(candidates, target);
 
   for (int i=0; i<solutions.size(); i++) {
@@ -62,7 +72,7 @@ TEST(CombinationSumTest, Sum11) {
   int target = 11;
 
   Solution sol;
-  std::vector<int> candidates (std::begin(input), std::end(input));
+  std::vector<int> candidates = vectorize(input);
   std::vector< std::vector<int> > solutions = sol.combinationSum(candidates, target);
 
   for (int i=0; i<solutions.size(); i++) {
@@ -84,7 +94,7 @@ TEST(CombinationSumTest, Sum21) {
   int target = 21;
 
   Solution sol;
-  std::vector<int> candidates (std::begin(input), std::end(input));
+  std::vector<int> candidates = vectorize(input);
   std::vector< std::vector<int> > solutions = sol.combinationSum(candidates, target);
 
   for (int i=0; i<solutions.size(); i++) {

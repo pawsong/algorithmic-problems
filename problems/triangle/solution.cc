@@ -7,7 +7,7 @@ int Solution::minimumTotal(std::vector< std::vector<int> >& triangle) {
   int iter = 0;
   if (triangle.size() > 0 && triangle[0].size() > 0) {
     solutions[iter] = triangle[0][0];
-    iter = iter + 1 % solutions.size();
+    iter = (iter + 1) % solutions.size();
   }
 
   for ( int i=1; i<triangle.size(); i++ ) {

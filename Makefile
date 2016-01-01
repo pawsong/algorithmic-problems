@@ -14,6 +14,7 @@ $(PROBLEMS):
 clean:
 	rm -rf $(LIB_DIR)
 	rm -rf $(BIN_DIR)
+	$(foreach PROBLEM, $(PROBLEMS), make clean -C $(PROBLEM);)
 
 gtest: $(LIB_DIR)/libgmock.a
 

@@ -7,3 +7,4 @@
 * [Maximal square](problems/maximal-square)
 * [Perfect squares](problems/perfect-squares)
 * [Triangle](problems/triangle)
+* [Combination Sum](problems/combination-sum)

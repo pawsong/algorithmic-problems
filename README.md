@@ -9,3 +9,4 @@
 * [Triangle](problems/triangle)
 * [Combination Sum](problems/combination-sum)
 * [Subsets](problems/subsets)
+* [Permutations](problems/permutations)

@@ -8,3 +8,4 @@
 * [Perfect squares](problems/perfect-squares)
 * [Triangle](problems/triangle)
 * [Combination Sum](problems/combination-sum)
+* [Subsets](problems/subsets)

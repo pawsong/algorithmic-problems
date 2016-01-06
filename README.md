@@ -12,3 +12,4 @@
 * [Permutations](problems/permutations)
 * [Binary Search Tree Iterator](problems/binary-search-tree-iterator)
 * [Super Ugly Number](problems/super-ugly-number)
+* [Additive Number](problems/additive-number)

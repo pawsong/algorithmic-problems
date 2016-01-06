@@ -1,5 +1,5 @@
 DEBUG=-g
-CFLAG=$(DEBUG)
+CXXFLAG=$(DEBUG) -std=c++11
 LDFLAG=$(DEBUG)
 ROOT_DIR=$(dir $(lastword $(MAKEFILE_LIST)))
 LIB_DIR=$(ROOT_DIR)lib
@@ -16,7 +16,7 @@ $(EXECUTABLE): test.cc $(OBJS)
 	$(CXX) $(LDFLAG) -isystem ${GTEST_DIR}/include -isystem ${GMOCK_DIR}/include -pthread $^ $(LIB_DIR)/libgmock.a -o $@
 
 %.o: %.cc
-	$(CXX) $(CFLAG) -c $< -o $@
+	$(CXX) $(CXXFLAG) -c $< -o $@
 
 test: $(EXECUTABLE)
 	$(EXECUTABLE)

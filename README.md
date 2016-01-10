@@ -14,3 +14,7 @@
 * [Super Ugly Number](problems/super-ugly-number)
 * [Additive Number](problems/additive-number)
 * [Minimum Height Trees](problems/minimum-height-trees)
+
+# References
+1. Steve S. Skiena, 2008, The Algorithm Design Manual, 2e, Springer.
+2. https://leetcode.com/problemset/algorithms

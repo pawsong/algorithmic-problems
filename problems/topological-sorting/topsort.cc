@@ -1,5 +1,6 @@
 
 #include <cassert>
+#include <algorithm>
 
 #include "topsort.h"
 

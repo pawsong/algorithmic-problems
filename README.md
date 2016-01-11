@@ -14,6 +14,7 @@
 * [Super Ugly Number](problems/super-ugly-number)
 * [Additive Number](problems/additive-number)
 * [Minimum Height Trees](problems/minimum-height-trees)
+* [Topological Sorting](problems/topological-sorting)
 
 # References
 1. Steve S. Skiena, 2008, The Algorithm Design Manual, 2e, Springer.

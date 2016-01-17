@@ -17,6 +17,7 @@
 * [Topological Sorting](problems/topological-sorting)
 * [Shortest Path](problems/shortest-path)
 * [Minimum Spanning Trees](problems/minimum-spanning-trees)
+* [Create Maximum Number](problems/create-maximum-number)
 
 # References
 1. Steve S. Skiena, 2008, The Algorithm Design Manual, 2e, Springer.

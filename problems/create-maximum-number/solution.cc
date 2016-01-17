@@ -45,7 +45,7 @@ public:
     return A.size() < B.size();
   }
   friend bool operator>(const Number& A, const Number& B) {
-    return !(A<B);
+    return (B<A) ? true : false;
   }
 };
 

@@ -1,4 +1,6 @@
 
+#include <iterator>
+
 #include "gmock/gmock.h"
 #include "solution.h"
 

@@ -15,6 +15,7 @@
 * [Additive Number](problems/additive-number)
 * [Minimum Height Trees](problems/minimum-height-trees)
 * [Topological Sorting](problems/topological-sorting)
+* [Shortest Path](problems/shortest-path)
 
 # References
 1. Steve S. Skiena, 2008, The Algorithm Design Manual, 2e, Springer.

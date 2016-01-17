@@ -16,6 +16,7 @@
 * [Minimum Height Trees](problems/minimum-height-trees)
 * [Topological Sorting](problems/topological-sorting)
 * [Shortest Path](problems/shortest-path)
+* [Minimum Spanning Trees](problems/minimum-spanning-trees)
 
 # References
 1. Steve S. Skiena, 2008, The Algorithm Design Manual, 2e, Springer.

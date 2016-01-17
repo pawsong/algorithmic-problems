@@ -14,10 +14,13 @@ public:
   Number( int n ) : digits(1, n) {}
   Number( const Number& n ) : digits(n.digits) {}
 
-  void push( int digit ) {
+  inline void push( int digit ) {
     digits.push_back(digit);
   }
-  size_t size() const {
+  inline void pop() {
+    digits.pop_back();
+  }
+  inline size_t size() const {
     return digits.size();
   }
   std::vector<int> vector() const {
@@ -34,15 +37,18 @@ public:
     }
     return ss.str();
   }
-  friend bool operator<(const Number& A, const Number& B) {
+  static int compare(const Number& A, const Number& B) {
     if ( A.size() == B.size() ) {
       for (int i=0; i<A.size(); i++) {
         if (A.digits[i] == B.digits[i])
           continue;
-        return A.digits[i] < B.digits[i];
+        return A.digits[i] - B.digits[i];
       }
     }
-    return A.size() < B.size();
+    return A.size() - B.size();
+  }
+  friend bool operator<(const Number& A, const Number& B) {
+    return Number::compare(A, B) < 0;
   }
   friend bool operator>(const Number& A, const Number& B) {
     return (B<A) ? true : false;
@@ -95,32 +101,29 @@ std::vector<int> Solution::maxNumber(std::vector<int>& nums1, std::vector<int>& 
         if ( i + j  < k )
           continue;
 
-        Number max;
         if ( i > 0 ) {
-          Number num = prev[i-1][j];
+          matrix[i][j] = matrix[i-1][j];
+
+          Number& num = prev[i-1][j];
           num.push(nums1[i-1]);
-          if (max < num) {
-            max = num;
+          if (matrix[i][j] < num) {
+            matrix[i][j] = num;
           }
-
-          if (max < matrix[i-1][j]) {
-            max = matrix[i-1][j];
-          }
+          num.pop();
         }
+
         if ( j > 0 ) {
-          Number num = prev[i][j-1];
+          if ( i == 0 || matrix[i][j] < matrix[i][j-1] ) {
+            matrix[i][j] = matrix[i][j-1];
+          }
+
+          Number& num = prev[i][j-1];
           num.push(nums2[j-1]);
-          if (max < num) {
-            max = num;
+          if (matrix[i][j] < num) {
+            matrix[i][j] = num;
           }
-
-          if (max < matrix[i][j-1]) {
-            max = matrix[i][j-1];
-          }
+          num.pop();
         }
-
-        assert( max.size() > 0 );
-        matrix[i][j] = max;
       }
     }
   }

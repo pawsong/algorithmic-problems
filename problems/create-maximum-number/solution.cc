@@ -1,5 +1,6 @@
 
 #include <cassert>
+#include <iterator>
 #include <string>
 #include <sstream>
 

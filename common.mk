@@ -1,6 +1,6 @@
 DEBUG=-g
 CXXFLAG=$(DEBUG) -std=c++11
-LDFLAG=$(DEBUG)
+LDFLAG=
 ROOT_DIR=$(dir $(lastword $(MAKEFILE_LIST)))
 LIB_DIR=$(ROOT_DIR)lib
 BIN_DIR=$(ROOT_DIR)bin
@@ -13,7 +13,7 @@ OBJS=$(CPPS:.cc=.o)
 
 $(EXECUTABLE): test.cc $(OBJS)
 	mkdir -p $(BIN_DIR)
-	$(CXX) $(LDFLAG) -isystem ${GTEST_DIR}/include -isystem ${GMOCK_DIR}/include -pthread $^ $(LIB_DIR)/libgmock.a -o $@
+	$(CXX) $(CXXFLAG) $(LDFLAG) -isystem ${GTEST_DIR}/include -isystem ${GMOCK_DIR}/include -pthread $^ $(LIB_DIR)/libgmock.a -o $@
 
 %.o: %.cc
 	$(CXX) $(CXXFLAG) -c $< -o $@

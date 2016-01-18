@@ -16,6 +16,7 @@
 * [Minimum Height Trees](problems/minimum-height-trees)
 * [Topological Sorting](problems/topological-sorting)
 * [Shortest Path](problems/shortest-path)
+* [All-pairs shortest paths](problems/all-pairs-shortest-paths)
 * [Minimum Spanning Trees](problems/minimum-spanning-trees)
 * [Create Maximum Number](problems/create-maximum-number)
 

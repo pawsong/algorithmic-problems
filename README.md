@@ -19,6 +19,7 @@
 * [All-pairs shortest paths](problems/all-pairs-shortest-paths)
 * [Minimum Spanning Trees](problems/minimum-spanning-trees)
 * [Create Maximum Number](problems/create-maximum-number)
+* [Splay tree](problems/splay-tree)
 
 # References
 1. Steve S. Skiena, 2008, The Algorithm Design Manual, 2e, Springer.

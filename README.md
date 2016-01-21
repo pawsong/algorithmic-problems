@@ -20,6 +20,7 @@
 * [Minimum Spanning Trees](problems/minimum-spanning-trees)
 * [Create Maximum Number](problems/create-maximum-number)
 * [Splay tree](problems/splay-tree)
+* [Binary tree paths](problems/binary-tree-paths)
 
 # References
 1. Steve S. Skiena, 2008, The Algorithm Design Manual, 2e, Springer.

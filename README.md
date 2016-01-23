@@ -21,6 +21,7 @@
 * [Create Maximum Number](problems/create-maximum-number)
 * [Splay tree](problems/splay-tree)
 * [Binary tree paths](problems/binary-tree-paths)
+* [Trie](problems/trie)
 
 # References
 1. Steve S. Skiena, 2008, The Algorithm Design Manual, 2e, Springer.

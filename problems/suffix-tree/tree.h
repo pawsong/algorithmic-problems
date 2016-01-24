@@ -13,4 +13,7 @@ class SuffixTree : public Trie<char> {
     SuffixTree::internalInsert( str );
   }
   virtual ~SuffixTree() {}
+
+  void insert( const std::string& );
+  bool contains( const std::string& ) const;
 };

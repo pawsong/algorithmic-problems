@@ -1,4 +1,5 @@
 
+#include <iostream>
 #include <algorithm>
 
 #include "trie.h"
@@ -25,6 +26,22 @@ TrieNode* TrieNode::insert( int i, bool eof ) {
   return ret;
 }
 
+bool TrieNode::contains( const std::vector<int>& indexes, int i, bool eof ) const {
+  if ( i == indexes.size() ) {
+    return (eof == true) ? isEOF() : true;
+  }
+
+  int idx = indexes[i];
+  if ( idx > -1 && idx < edges.size() ) {
+    auto* edge = edges[ idx ];
+    if ( edge != NULL ) {
+      return edge->contains( indexes, ++i, eof );
+    }
+  }
+
+  return false;
+}
+
 // Trie
 template<typename T>
 void Trie<T>::insert( const std::vector<T>& string ) {
@@ -45,6 +62,22 @@ void Trie<T>::insert( const std::vector<T>& string ) {
       node = node->insert( it - alphabets.begin(), eof );
     }
   }
+}
+
+template<typename T>
+bool Trie<T>::contains( const std::vector<T>& substr, bool full ) const {
+  std::vector<int> indexes;
+
+  for (int i=0; i<substr.size(); i++) {
+    auto it = std::find(alphabets.begin(), alphabets.end(), substr[i]);
+    indexes.push_back( it - alphabets.begin() );
+  }
+
+  if (root != NULL) {
+    return root->contains(indexes, 0, full);
+  }
+
+  return false;
 }
 
 template<typename T>

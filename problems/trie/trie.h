@@ -24,6 +24,7 @@ class TrieNode {
     return eof;
   }
   TrieNode* insert( int, bool );
+  bool contains( const std::vector<int>&, int, bool ) const;
 
   inline std::vector< TrieNode* >::iterator begin() {
     return edges.begin();
@@ -60,6 +61,8 @@ class Trie {
   }
 
   void insert( const std::vector<T>& );
+  bool contains( const std::vector<T>&, bool full = true ) const;
+
   inline void getStrings( std::vector< std::vector<T> >& strings ) const {
     if (root != NULL) {
       std::vector<T> substr;

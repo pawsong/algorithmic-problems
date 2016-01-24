@@ -1,5 +1,4 @@
 
-#include <iostream>
 #include <string>
 
 #include "gmock/gmock.h"
@@ -74,4 +73,13 @@ TEST(TrieTest, LargeInput) {
   std::vector< std::vector<char> > strings;
   trie.getStrings(strings);
   EXPECT_THAT(strings, UnorderedElementsAreArray(input));
+
+  for ( auto& str : input ) {
+    EXPECT_EQ(trie.contains(str), true);
+  }
+
+  // Negative tests.
+  EXPECT_EQ(trie.contains( ::conv("ASTO") ), false);
+  EXPECT_EQ(trie.contains( ::conv("INNN") ), false);
+  EXPECT_EQ(trie.contains( ::conv("INSPIRE") ), false);
 }

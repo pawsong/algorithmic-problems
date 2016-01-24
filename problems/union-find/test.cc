@@ -28,15 +28,15 @@ TEST(UnionFindTest, 1000Elems) {
   int N = 1000;
   Set set( N );
 
-  for (int i=1; i<100; i++) {
+  for (int i=1; i<N; i++) {
     EXPECT_EQ(set.connected(0, i), false);
   }
 
-  for (int i=1; i<100; i++) {
+  for (int i=1; i<N; i++) {
     set.merge(i-1, i);
   }
 
-  for (int i=1; i<100; i++) {
+  for (int i=1; i<N; i++) {
     EXPECT_EQ(set.connected(0, i), true);
     EXPECT_EQ(set.find(i), 0);
   }

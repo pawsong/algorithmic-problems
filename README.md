@@ -23,6 +23,7 @@
 * [Binary tree paths](problems/binary-tree-paths)
 * [Trie](problems/trie)
 * [Suffix tree](problems/suffix-tree)
+* [Union-Find](problems/union-find)
 
 # References
 1. Steve S. Skiena, 2008, The Algorithm Design Manual, 2e, Springer.

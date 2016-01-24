@@ -24,8 +24,8 @@ TEST(UnionFindTest, 2Elems) {
   EXPECT_EQ(set.connected(0, 1), true);
 }
 
-TEST(UnionFindTest, 100Elems) {
-  int N = 100;
+TEST(UnionFindTest, 1000Elems) {
+  int N = 1000;
   Set set( N );
 
   for (int i=1; i<100; i++) {
@@ -38,5 +38,6 @@ TEST(UnionFindTest, 100Elems) {
 
   for (int i=1; i<100; i++) {
     EXPECT_EQ(set.connected(0, i), true);
+    EXPECT_EQ(set.find(i), 0);
   }
 }

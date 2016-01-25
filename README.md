@@ -24,6 +24,7 @@
 * [Trie](problems/trie)
 * [Suffix tree](problems/suffix-tree)
 * [Union-Find](problems/union-find)
+* [Number of Islands](problems/number-of-islands)
 
 # References
 1. Steve S. Skiena, 2008, The Algorithm Design Manual, 2e, Springer.

@@ -9,12 +9,12 @@ PROBLEMS=$(wildcard problems/*/)
 all: gtest $(PROBLEMS)
 
 $(PROBLEMS):
-	make -C $@
+	$(MAKE) -C $@
 
 clean:
 	rm -rf $(LIB_DIR)
 	rm -rf $(BIN_DIR)
-	$(foreach PROBLEM, $(PROBLEMS), make clean -C $(PROBLEM);)
+	$(foreach PROBLEM, $(PROBLEMS), $(MAKE) clean -C $(PROBLEM);)
 
 gtest: $(LIB_DIR)/libgmock.a
 
@@ -30,4 +30,4 @@ $(LIB_DIR)/libgmock.a: $(LIB_DIR)/gtest-all.o $(LIB_DIR)/gmock-all.o
 	ar -rv $@ $^
 
 test:
-	$(foreach PROBLEM, $(PROBLEMS), make test -C $(PROBLEM);)
+	$(foreach PROBLEM, $(PROBLEMS), $(MAKE) test -C $(PROBLEM);)

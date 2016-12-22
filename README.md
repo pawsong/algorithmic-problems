@@ -1,7 +1,8 @@
-[![Build Status](https://travis-ci.org/dksong/algorithmic-problems.svg?branch=master)](https://travis-ci.org/dksong/algorithmic-problems)
+[![Build Status](https://travis-ci.org/dokyungsong/algorithmic-problems.svg?branch=master)](https://travis-ci.org/dokyungsong/algorithmic-problems)
 
 # Algorithmic problems
 * [Longest increasing subsequence](problems/longest-increasing-subsequence)
+* [Longest consecutive sequence](problems/longest-consecutive-sequence)
 * [Edit distance](problems/edit-distance)
 * [Knapsack](problems/knapsack)
 * [Maximal square](problems/maximal-square)

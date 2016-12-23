@@ -6,7 +6,7 @@ os:
  - linux
  - osx
 install:
- - if [ "$CXX" = "g++" ]; then export CXX="g++-4.8"; fi
+ - if [ "$CXX" = "g++" ]; then export CXX="g++-5"; fi
 addons:
  apt:
   sources:

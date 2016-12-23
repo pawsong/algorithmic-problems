@@ -5,13 +5,15 @@ compiler:
 os:
  - linux
  - osx
+before_install:
 install:
+ - if [[ "$TRAVIS_OS_NAME" == "osx" && "$CXX" == "g++" ]]; then brew install gcc5; fi
  - if [ "$CXX" = "g++" ]; then export CXX="g++-5"; fi
 addons:
  apt:
   sources:
    - ubuntu-toolchain-r-test
   packages:
-   - g++-4.8
+   - g++-5
 notifications:
  email: false

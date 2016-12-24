@@ -37,3 +37,18 @@ TEST(MinimumWindowSubstring, Empty) {
   Solution sol;
   EXPECT_EQ( sol.minWindow( "", "" ), "" );
 }
+
+TEST(MinimumWindowSubstring, NoMatch2) {
+  Solution sol;
+  EXPECT_EQ( sol.minWindow( "a", "aa" ), "" );
+}
+
+TEST(MinimumWindowSubstring, SmallChars) {
+  Solution sol;
+  EXPECT_EQ( sol.minWindow( "ab", "b" ), "b" );
+}
+
+TEST(MinimumWindowSubstring, SameChars) {
+  Solution sol;
+  EXPECT_EQ( sol.minWindow( "aa", "aa" ), "aa" );
+}

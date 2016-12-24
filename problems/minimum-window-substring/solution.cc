@@ -8,7 +8,10 @@ std::string Solution::minWindow(std::string s, std::string t) {
 
   std::map<char, int> cnt;
   for ( char c : t ) {
-    cnt[c] = -1;
+    if( cnt.find(c) == cnt.end() ) {
+      cnt[c] = 0;
+    }
+    cnt[c]--;
   }
 
   int numMissing = cnt.size();
@@ -31,7 +34,6 @@ std::string Solution::minWindow(std::string s, std::string t) {
     if ( curCnt == 0 ) {
       numMissing--;
       E = end;
-      continue;
     }
 
     if ( numMissing > 0 ) {

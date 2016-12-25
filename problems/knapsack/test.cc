@@ -23,10 +23,9 @@ TEST(KnapsackWithRepetitionTest, SmallCase1) {
   items.push_back(createKnapsackItem(2, 9));
 
   Solution sol;
-  int actual = sol.knapsackWithRepetition(items, 10);
-  int expected = 30 + 9 + 9;
 
-  EXPECT_EQ(actual, expected);
+  EXPECT_EQ(30 + 9 + 9, sol.knapsackWithRepetition(items, 10));
+  EXPECT_EQ(30 + 16, sol.knapsackWithoutRepetition(items, 10));
 }
 
 TEST(KnapsackWithRepetitionTest, SmallCase2) {
@@ -37,11 +36,15 @@ TEST(KnapsackWithRepetitionTest, SmallCase2) {
   items.push_back(createKnapsackItem(2, 9));
 
   Solution sol;
-  int actual = sol.knapsackWithRepetition(items, 10);
-  int expected = 2 * 14 + 2 * 9;
 
-  EXPECT_EQ(actual, expected);
+  EXPECT_EQ(2 * 14 + 2 * 9, sol.knapsackWithRepetition(items, 10));
+  EXPECT_EQ(14 + 16 + 9, sol.knapsackWithoutRepetition(items, 10));
 
   items.push_back(createKnapsackItem(10, 100));
   EXPECT_EQ(100, sol.knapsackWithRepetition(items, 10));
+  EXPECT_EQ(100, sol.knapsackWithoutRepetition(items, 10));
+
+  items.push_back(createKnapsackItem(5, 100));
+  EXPECT_EQ(200, sol.knapsackWithRepetition(items, 10));
+  EXPECT_EQ(100 + 14 + 9, sol.knapsackWithoutRepetition(items, 10));
 }

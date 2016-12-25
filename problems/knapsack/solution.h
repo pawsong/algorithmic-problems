@@ -8,7 +8,6 @@ struct KnapsackItem {
 
 class Solution {
  public:
-  Solution() {}
-
   int knapsackWithRepetition(const std::vector<KnapsackItem>& items, int maxWeight);
+  int knapsackWithoutRepetition(const std::vector<KnapsackItem>& items, int maxWeight);
 };

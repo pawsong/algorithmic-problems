@@ -32,7 +32,7 @@ bool ShortestPath::topsort( int initialNode,
   // Process vertices from left to right.
   distances.resize(0);
 
-#define INFINITY -1.f
+#define INFINITY -1
   distances.resize( n, INFINITY );
 
   bool foundInitialNode = false;

@@ -1,4 +1,3 @@
-
 #include <iostream>
 
 #include "../topological-sorting/topsort.h"
@@ -30,10 +29,10 @@ bool ShortestPath::topsort( int initialNode,
     return false;
   }
 
-  // Process vertexes from left to right.
+  // Process vertices from left to right.
   distances.resize(0);
 
-#define INFINITY -1
+#define INFINITY -1.f
   distances.resize( n, INFINITY );
 
   bool foundInitialNode = false;
@@ -46,15 +45,11 @@ bool ShortestPath::topsort( int initialNode,
       distances[cur] = 0;
     }
     else if ( foundInitialNode ) {
-      int prev = -1;
-      float smallest = -1.f;
-      for ( const auto& iter : incomingEdges[cur] ) {
-        if (prev == -1 || smallest > distances[iter.first] + iter.second) {
-          prev = iter.first;
-          smallest = distances[prev] + iter.second;
+      for ( auto it = incomingEdges[cur].begin(); it != incomingEdges[cur].end(); ++it ) {
+        if (distances[cur] == INFINITY || distances[cur] > distances[it->first] + it->second) {
+          distances[cur] = distances[it->first] + it->second;
         }
       }
-      distances[cur] = smallest;
     }
 
     for ( const auto& edge : adjListsWithWeight[cur] ) {

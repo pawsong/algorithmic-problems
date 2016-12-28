@@ -1,5 +1,7 @@
 #include "solution.h"
 
+namespace I {
+
 bool Solution::searchMatrix(std::vector<std::vector<int>>& matrix, int target) {
   if ( matrix.size() == 0 )
     return false;
@@ -32,4 +34,34 @@ bool Solution::searchMatrix(std::vector<std::vector<int>>& matrix, int target) {
   }
 
   return false;
+}
+
+}
+
+
+namespace II {
+
+bool Solution::searchMatrix(std::vector<std::vector<int>>& matrix, int target) {
+  if ( matrix.size() == 0 || matrix[0].size() == 0 )
+    return false;
+
+  int col = matrix[0].size() - 1;
+  int row = 0;
+
+  while( col >= 0 && row <= matrix.size() - 1 ) {
+    int n = matrix[row][col];
+    if ( n == target ) {
+      return true;
+    }
+    else if ( n > target ) {
+      col--;
+    }
+    else {
+      row++;
+    }
+  }
+
+  return false;
+}
+
 }

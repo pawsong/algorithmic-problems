@@ -1,8 +1,4 @@
-
 #include "solution.h"
-
-Solution::Solution() {
-}
 
 std::vector<int> Solution::get_longest_increasing_subsequence(const std::vector<int>& input) {
   std::vector<int> lengths( input.size() );
@@ -39,4 +35,24 @@ std::vector<int> Solution::get_longest_increasing_subsequence(const std::vector<
   }
 
   return seq;
+}
+
+int Solution::lengthOfLIS( std::vector<int>& nums ) {
+  int max = 0;
+
+  std::vector<int> dp( nums.size(), 1 );
+  for ( int i = 0; i < nums.size(); i++ ) {
+    for ( int j = 0; j < i; j++ ) {
+      if ( nums[j] < nums[i] ) {
+        if ( dp[j] + 1 > dp[i] ) {
+          dp[i] = dp[j] + 1;
+        }
+      }
+    }
+
+    if ( max < dp[i] )
+      max = dp[i];
+  }
+
+  return max;
 }

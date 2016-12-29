@@ -11,7 +11,6 @@ int main(int argc, char** argv) {
 }
 
 TEST(LongestIncreasingSubsequenceTest, Case1) {
-
   std::vector<int> input;
   input.push_back(5);
   input.push_back(2);
@@ -27,4 +26,12 @@ TEST(LongestIncreasingSubsequenceTest, Case1) {
 
   int expected[] = {2, 3, 6, 9};
   EXPECT_THAT(result, testing::ElementsAreArray(expected));
+}
+
+TEST(LongestIncreasingSubsequenceTest, Length) {
+  int arr[] = {1, -1, 2, -2, 3, -3, 4, -4, 5, -5, 6, -6, 7, -7, 8, -8, 9, -9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, -1, -2, -3, -4};
+  std::vector<int> vec( arr, arr+sizeof(arr)/sizeof(arr[0]) );
+
+  Solution sol;
+  EXPECT_THAT(sol.lengthOfLIS(vec), 10);
 }

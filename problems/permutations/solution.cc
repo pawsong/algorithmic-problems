@@ -1,27 +1,28 @@
-
 #include "solution.h"
 
-class StackCell {
+class StackFrame {
 public:
   std::vector<int> partialSolutions;
-  std::vector<bool> bitVectors;
+  std::vector<bool> bitVector;
 
-  StackCell(int n) : partialSolutions(), bitVectors(n, false) {}
-  StackCell(const StackCell& s) : partialSolutions(s.partialSolutions), bitVectors(s.bitVectors) {}
+  StackFrame(int n) : partialSolutions(), bitVector(n, false) {}
+  StackFrame(const StackFrame& s) : partialSolutions(s.partialSolutions), bitVector(s.bitVector) {}
 
   int size() const {
     return partialSolutions.size();
   }
-  bool find(const std::vector<int>& nums, int idx) const {
-    if ( idx < bitVectors.size() ) {
-      return bitVectors[idx];
+
+  bool find( int idx ) const {
+    if ( idx < bitVector.size() ) {
+      return bitVector[idx];
     }
     return false;
   }
-  void add(const std::vector<int>& nums, int idx) {
-    if ( idx < bitVectors.size() && bitVectors[idx] == false ) {
-      partialSolutions.push_back(nums[idx]);
-      bitVectors[idx] = true;
+
+  void add( int num, int idx ) {
+    if ( idx < bitVector.size() && bitVector[idx] == false ) {
+      partialSolutions.push_back(num);
+      bitVector[idx] = true;
     }
   }
 };
@@ -29,25 +30,25 @@ public:
 std::vector< std::vector<int> > Solution::permute( std::vector<int>& nums ) {
   std::vector< std::vector<int> > permutations;
 
-  std::vector< StackCell > stack;
-  stack.push_back(StackCell(nums.size()));
+  std::vector< StackFrame > stack;
+  stack.emplace_back(StackFrame(nums.size()));
 
   while ( stack.empty() == false ) {
-    StackCell cell = stack.back();
+    StackFrame frame = stack.back();
     stack.pop_back();
 
-    int k = cell.size();
+    int k = frame.size();
     int n = nums.size();
 
     if ( k == n ) {
-      permutations.push_back(cell.partialSolutions);
+      permutations.push_back(frame.partialSolutions);
     }
     else if ( k < n ) {
       // Total (n - k) candidates remaining.
       for ( int idx = 0; idx < n; idx++ ) {
-        if ( cell.find(nums, idx) == false ) {
-          stack.push_back(cell);
-          stack[stack.size() - 1].add(nums, idx);
+        if ( frame.find(idx) == false ) {
+          stack.emplace_back(StackFrame(frame));
+          stack.back().add(nums[idx], idx);
         }
       }
     }

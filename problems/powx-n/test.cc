@@ -12,7 +12,9 @@ int main( int argc, char** argv ) {
 TEST(PowX_N, Base2) {
   Solution sol;
 
-  for ( int i = -10; i <= 10; i++ ) {
+  for ( int i = -100; i <= 10000; i++ ) {
     EXPECT_EQ(std::pow(2, i), sol.myPow(2, i));
   }
+
+  EXPECT_EQ(std::pow(2, -2147483648), sol.myPow(2, -2147483648));
 }

@@ -1,6 +1,6 @@
 #include "solution.h"
 
-double Solution::myPow(double x, int n) {
+static double myPow(double x, long long int n) {
   if ( n == 0 ) {
     return 1;
   }
@@ -9,5 +9,22 @@ double Solution::myPow(double x, int n) {
     n *= -1;
   }
 
-  return n % 2 == 0 ? myPow(x * x, n / 2) : x * myPow( x * x, n / 2 );
+  double ret = 1;
+  double cur = x;
+  while ( n > 0 ) {
+    if ( n % 2 == 1 ) {
+      ret *= cur;
+      n -= 1;
+    }
+    else {
+      cur *= cur;
+      n /= 2;
+    }
+  }
+
+  return ret;
+}
+
+double Solution::myPow(double x, int n) {
+  return ::myPow(x, (long long int)n);
 }

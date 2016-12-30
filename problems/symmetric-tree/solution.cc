@@ -5,10 +5,8 @@ bool Solution::isSymmetric(TreeNode* root) {
 
   std::queue<std::pair<TreeNode*, bool>> q;
 
-  if ( root && root->left ) {
+  if ( root != nullptr ) {
     q.emplace(root->left, false);
-  }
-  if ( root && root->right ) {
     q.emplace(root->right, true);
   }
 
@@ -21,7 +19,7 @@ bool Solution::isSymmetric(TreeNode* root) {
     // Left subtree
     if ( cur.second == false ) {
       if ( rightSubtree ) {
-        if (leftHalf.size() > 0) {
+        if ( leftHalf.size() > 0 ) {
           return false;
         }
       }

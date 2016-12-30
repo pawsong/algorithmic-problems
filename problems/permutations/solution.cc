@@ -31,7 +31,7 @@ std::vector< std::vector<int> > Solution::permute( std::vector<int>& nums ) {
   std::vector< std::vector<int> > permutations;
 
   std::vector< StackFrame > stack;
-  stack.emplace_back(StackFrame(nums.size()));
+  stack.emplace_back(nums.size());
 
   while ( stack.empty() == false ) {
     StackFrame frame = stack.back();
@@ -41,13 +41,13 @@ std::vector< std::vector<int> > Solution::permute( std::vector<int>& nums ) {
     int n = nums.size();
 
     if ( k == n ) {
-      permutations.push_back(frame.partialSolutions);
+      permutations.emplace_back(frame.partialSolutions);
     }
     else if ( k < n ) {
       // Total (n - k) candidates remaining.
       for ( int idx = 0; idx < n; idx++ ) {
         if ( frame.find(idx) == false ) {
-          stack.emplace_back(StackFrame(frame));
+          stack.emplace_back(frame);
           stack.back().add(nums[idx], idx);
         }
       }

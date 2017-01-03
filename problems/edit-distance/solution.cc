@@ -1,4 +1,3 @@
-
 #include <iostream>
 
 #include "solution.h"
@@ -92,4 +91,32 @@ AlignedPair Solution::align(const std::string& stringA, const std::string& strin
   }
 
   return pair;
+}
+
+int Solution::minDistance(std::string word1, std::string word2) {
+  std::vector<std::vector<int>> dpTbl( word1.size() + 1, std::vector<int>(word2.size() + 1, 0) );
+
+  // base cases
+  for( int i = 0; i < word1.size(); i++ ) {
+    dpTbl[i+1][0] = i + 1;
+  }
+
+  for ( int j = 0; j < word2.size(); j++ ) {
+    dpTbl[0][j+1] = j + 1;
+  }
+
+  // DP
+  for ( int i = 0; i < word1.size(); i++ ) {
+    for ( int j = 0; j < word2.size(); j++ ) {
+      dpTbl[i+1][j+1] = std::min( dpTbl[i][j+1] + 1, dpTbl[i+1][j] + 1 );
+      if ( word1[i] == word2[j] ) {
+        dpTbl[i+1][j+1] = std::min( dpTbl[i+1][j+1], dpTbl[i][j] );
+      }
+      else {
+        dpTbl[i+1][j+1] = std::min( dpTbl[i+1][j+1], dpTbl[i][j] + 1 );
+      }
+    }
+  }
+
+  return dpTbl.back().back();
 }

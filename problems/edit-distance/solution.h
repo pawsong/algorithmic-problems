@@ -1,4 +1,3 @@
-
 #include <string>
 #include <vector>
 
@@ -13,7 +12,7 @@ struct AlignedPair {
 
 class Solution {
 public:
-  Solution() {}
-
   AlignedPair align(const std::string&, const std::string&);
+
+  int minDistance(std::string word1, std::string word2);
 };

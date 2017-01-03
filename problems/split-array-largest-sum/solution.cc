@@ -1,4 +1,4 @@
-#include <cstdint>
+#include <climits>
 #include "solution.h"
 
 static int internalSplitArray( std::vector<int> &nums, int idx, int m ) {

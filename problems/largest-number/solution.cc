@@ -1,3 +1,4 @@
+#include <algorithm>
 #include "solution.h"
 
 class Compare {
